@@ -42,6 +42,8 @@ class Student(models.Model):
     mother_name =models.CharField(max_length=255)
     admission_date =models.DateField()
 
+    def __str__(self):
+        return self.name + " | " + str(self.group.group)
 
 
 class Payment(models.Model):
