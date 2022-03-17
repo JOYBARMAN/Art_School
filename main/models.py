@@ -1,3 +1,97 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
+
+BLOOD_CHOICES=(
+    ("A+","A+"),
+    ("A-","A-"),
+    ("B+","B+"),
+    ("B-","B-"),
+    ("O+","O+"),
+    ("O-","O-"),
+    ("AB+","AB-")
+)
+GENDER_CHOICES=(
+    ("Male","Male"),
+    ("Female","Female"),
+    ("Other","Other")
+)
+PAYMENT_STATUS=(
+    ("paid","paid"),
+    ("not_Paid","not_paid"),
+    ("not_updated_yet","not_updated_yet")
+)
+
+class Group(models.Model):
+    group=models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.group
+
+class Student(models.Model):
+    name =models.CharField(max_length=255)
+    roll =models.CharField(max_length=255)
+    group =models.ForeignKey(Group,on_delete=models.CASCADE)
+    email =models.EmailField(max_length=255)
+    gender=models.CharField(max_length=10,choices=GENDER_CHOICES)
+    mobile =models.CharField(max_length=255)
+    photo = models.ImageField(upload_to='images/student/')
+    blood =models.CharField(max_length=10,choices=BLOOD_CHOICES)
+    address =models.CharField(max_length=255)
+    father_name =models.CharField(max_length=255)
+    mother_name =models.CharField(max_length=255)
+    admission_date =models.DateField()
+
+
+
+class Payment(models.Model):
+    student=models.ForeignKey(Student,on_delete=models.CASCADE)
+    january=models.CharField(max_length=255,choices=PAYMENT_STATUS,default="not_updated_yet")
+    february = models.CharField(max_length=255, choices=PAYMENT_STATUS, default="not_updated_yet")
+    march = models.CharField(max_length=255, choices=PAYMENT_STATUS, default="not_updated_yet")
+    april = models.CharField(max_length=255, choices=PAYMENT_STATUS, default="not_updated_yet")
+    may = models.CharField(max_length=255, choices=PAYMENT_STATUS, default="not_updated_yet")
+    june = models.CharField(max_length=255, choices=PAYMENT_STATUS, default="not_updated_yet")
+    july = models.CharField(max_length=255, choices=PAYMENT_STATUS, default="not_updated_yet")
+    august = models.CharField(max_length=255, choices=PAYMENT_STATUS, default="not_updated_yet")
+    september = models.CharField(max_length=255, choices=PAYMENT_STATUS, default="not_updated_yet")
+    october = models.CharField(max_length=255, choices=PAYMENT_STATUS, default="not_updated_yet")
+    november = models.CharField(max_length=255, choices=PAYMENT_STATUS, default="not_updated_yet")
+    december = models.CharField(max_length=255, choices=PAYMENT_STATUS, default="not_updated_yet")
+
+    def __str__(self):
+        return self.student.name
+
+class Blog(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    title=models.CharField(max_length=255)
+    photo=models.ImageField(upload_to='images/blog/')
+    video=models.CharField(max_length=255)
+    description=models.TextField()
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.user.username+" | "+ str(self.title)
+
+class Tutorial(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+    video = models.CharField(max_length=255)
+    thumbnail=models.ImageField(upload_to='images/tutorial/')
+    description = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title +" | "+str(self.group.group)
+
+
+class Contact(models.Model):
+    name=models.CharField(max_length=255)
+    email=models.EmailField(max_length=255)
+    message=models.TextField()
+
+    def __str__(self):
+        return self.name + " | " + str(self.message[:50])
