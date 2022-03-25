@@ -32,14 +32,14 @@ class Student(models.Model):
     name =models.CharField(max_length=255)
     roll =models.CharField(max_length=255)
     group =models.ForeignKey(Group,on_delete=models.CASCADE)
-    email =models.EmailField(max_length=255)
+    email =models.EmailField(max_length=255,null=True,blank=True)
     gender=models.CharField(max_length=10,choices=GENDER_CHOICES)
     mobile =models.CharField(max_length=255)
     photo = models.ImageField(upload_to='images/student/')
     blood =models.CharField(max_length=10,choices=BLOOD_CHOICES)
-    address =models.CharField(max_length=255)
-    father_name =models.CharField(max_length=255)
-    mother_name =models.CharField(max_length=255)
+    address =models.CharField(max_length=255,null=True,blank=True)
+    father_name =models.CharField(max_length=255,null=True,blank=True)
+    mother_name =models.CharField(max_length=255,null=True,blank=True)
     admission_date =models.DateField()
 
     def __str__(self):

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- google fonts link  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- font awesome  -->
+    <script src="https://kit.fontawesome.com/ba78558982.js" crossorigin="anonymous"></script>
+
+    <style>
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Handlee", cursive;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --white: #ffffff;
+            --black: rgb(0, 0, 0);
+            --yellow: rgb(255, 255, 0);
+            --pink: #ff009d;
+            --whitepink: rgb(255, 190, 190);
+            --blackgreen: #2d5a2c;
+            --success: #28a745;
+            --mix: #761a57;
+
+            --red_yellow: #ff4000;
+            --red: #cc0000;
+        }
+
+        * p {
+            font-family: 'Redressed', cursive;
+            color: var(--mix);
+            letter-spacing: 1.5px;
+        }
+
+        .logo {
+            height: 50px;
+            width: 80%;
+        }
+
+        .navbar {
+            padding: 1% 5%;
+            /* opacity: 0.8; */
+            background-color: var(--white) !important;
+        }
+
+        .nav-link {
+            color: var(--red_yellow) !important;
+            margin: 10px;
+            border-radius: 5px;
+            transition: 0.4s;
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            background: var(--red_yellow);
+            color: var(--white) !important;
+            transform: scale(1.1);
+        }
+
+        {% block style %}
+        {% endblock %}
+    </style>
+
+    {% block title %}
+
+    {% endblock %}
+</head>
+<body>
+{% include 'navbar.html' %}
+<div class="container">
+    {% block body %}
+
+    {% endblock %}
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

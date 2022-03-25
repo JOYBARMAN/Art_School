@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block body %}
+    <h3 class="text-danger text-center">Delete Stdent</h3>
+		<div class="form-group">
+			<form method="Post">
+				{% csrf_token %}
+                <h5>Name : {{ student.name }}</h5>
+                <h5>Group : {{ student.group }}</h5>
+				<h6>Are You Sure to Delete??</h6><br/>
+
+				<button class="btn btn-danger">Delete</button>
+{#				<a href="{% url 'story-home' %}" class="btn btn-success">Back</a>#}
+			</form>
+		</div>
+{% endblock %}
