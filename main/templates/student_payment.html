@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="">
+        <h3 class="text-uppercase font-weight-bold text-center text-danger my-5">student payment informations</h3>
+        <div class="text-right">
+            {#                <a class="btn btn-primary text-white m-2" href="{% url 'add-student' %}">Add Student</a>#}
+            {#                <a class="btn btn-primary text-white m-2">Student Payment</a>#}
+            {#                <a class="btn btn-primary text-white m-2">Filter</a>#}
+        </div>
+        <table class="table table-striped mt-4" style="font-size: x-small">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">January</th>
+                <th scope="col">February</th>
+                <th scope="col">March</th>
+                <th scope="col">April</th>
+                <th scope="col">May</th>
+                <th scope="col">June</th>
+                <th scope="col">July</th>
+                <th scope="col">August</th>
+                <th scope="col">September</th>
+                <th scope="col">October</th>
+                <th scope="col">November</th>
+                <th scope="col">December</th>
+                <th scope="col">Action</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for payment in object_list %}
+                <tr>
+                    <th scope="row" class="text-capitalize">{{ payment.student.name }}</th>
+                    <td>{{ payment.january }}</td>
+                    <td>{{ payment.february }}</td>
+                    <td>{{ payment.march }}</td>
+                    <td>{{ payment.april }}</td>
+                    <td>{{ payment.may }}</td>
+                    <td>{{ payment.june }}</td>
+                    <td>{{ payment.july }}</td>
+                    <td>{{ payment.august }}</td>
+                    <td>{{ payment.september }}</td>
+                    <td>{{ payment.october }}</td>
+                    <td>{{ payment.november }}</td>
+                    <td>{{ payment.december }}</td>
+                    <td class="d-flex"><a class="fas fa-trash text-danger mx-2" href="#"></a><a class="fas fa-pen text-primary mx-2" href="#"></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block body %}
-    <div class="container">
+    <div class="">
         <h3 class="text-uppercase font-weight-bold text-center text-danger my-5">student informations</h3>
             <div class="text-right">
                 <a class="btn btn-primary text-white m-2" href="{% url 'add-student' %}">Add Student</a>
-                <a class="btn btn-primary text-white m-2">Student Payment</a>
+                <a class="btn btn-primary text-white m-2" href="{% url 'student-payment' %}">Student Payment</a>
                 <a class="btn btn-primary text-white m-2">Filter</a>
             </div>
-        <table class="table table-striped mt-4">
+        <table class="table table-striped mt-4" >
             <thead>
             <tr>
                 <th scope="col">Name</th>
