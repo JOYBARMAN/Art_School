@@ -1,0 +1,98 @@
+h1,h2,h3,h4,h5,h6{
+  font-family: "Handlee", cursive;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --white: #ffffff;
+  --black: rgb(0, 0, 0);
+  --yellow: rgb(255, 255, 0);
+  --pink: #ff009d;
+  --whitepink: rgb(255, 190, 190);
+  --blackgreen: #2d5a2c;
+  --success:#28a745;
+  --mix : #761a57;
+
+  --red_yellow:#ff4000;
+  --red:#cc0000;
+}
+
+* p{
+  font-family: 'Redressed', cursive;
+  color: var(--mix);
+  letter-spacing: 1.5px;
+}
+
+.row{
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+
+/* header start */
+.logo {
+  height: 5rem;
+}
+.navbar {
+  padding: 1% 10%;
+  /* opacity: 0.8; */
+  background-color: var(--white) !important;
+}
+.nav-link {
+  color: var(--red_yellow) !important;
+  margin: 10px;
+  border-radius: 5px;
+  transition: 0.4s;
+  font-weight: bold;
+}
+.nav-link:hover {
+  background: var(--red_yellow);
+  color: var(--white) !important;
+  transform: scale(1.1);
+}
+.banner {
+  background-image: url("https://as2.ftcdn.net/v2/jpg/01/65/77/21/1000_F_165772143_yjgqRuyiZxRmP81yMvJPPOlqfuAn3ZDr.jpg");
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size:cover;
+  opacity: 0.9;
+}
+.banner-container {
+  height: 100vh;
+}
+.banner-content h1,h6{
+  /* background-color: var(--blackgreen); */
+  color: var(--red);
+  /* padding: 0% 5%; */
+  /* font-size: 3rem; */
+  /* opacity: 0.8; */
+  
+}
+.banner-content .button {
+  /* border: 2px solid var(--white); */
+  color: var(--white);
+  font-weight: bold;
+  background-color: var(--red_yellow);
+}
+/* header end  */
+
+/* css for child potential start  */
+
+
+
+/* css for child potential end   */
+
+/* css for footer  start*/
+.footer a{
+  text-decoration: none;
+}
+.hr{
+  border: 4px dotted var(--success);
+  border-bottom: none;
+}
+/* css for footer end  */
