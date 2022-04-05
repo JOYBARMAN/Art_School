@@ -88,11 +88,14 @@ html {
 /* css for child potential end   */
 
 /* css for footer  start*/
-.footer a{
-  text-decoration: none;
+.footer p{
+  font-size: small;
+  color: white;
 }
-.hr{
-  border: 4px dotted var(--success);
-  border-bottom: none;
+.footer h4{
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+
 }
 /* css for footer end  */
