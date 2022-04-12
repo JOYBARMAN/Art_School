@@ -3,7 +3,7 @@ from django.shortcuts import HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Student,Payment
 from django.urls import reverse_lazy
-from .forms import StudentForm, StudentUpdateForm ,StudentPaymentForm
+from .forms import StudentForm, StudentUpdateForm ,StudentPaymentForm,StudentPaymentUpdateForm
 
 
 def home(request):
@@ -41,8 +41,15 @@ class PaymentView(ListView):
     template_name = 'student_payment.html'
     ordering = ['student']
 
-class CreatePayment(CreateView):
+class CreatePaymentView(CreateView):
     model = Payment
     form_class = StudentPaymentForm
     template_name = "student_payment_add.html"
+    success_url = reverse_lazy("student-payment")
+
+
+class EditStudentPaymentView(UpdateView):
+    model = Payment
+    form_class = StudentPaymentUpdateForm
+    template_name = 'edit-student-payment.html'
     success_url = reverse_lazy("student-payment")

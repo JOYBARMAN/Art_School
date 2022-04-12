@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h1 class="text-center text-danger">Edit Student Payment</h1>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-success">Edit Payment</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

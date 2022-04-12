@@ -15,3 +15,8 @@ class StudentPaymentForm(forms.ModelForm):
     class Meta:
         model=Payment
         fields=('__all__')
+
+class StudentPaymentUpdateForm(forms.ModelForm):
+    class Meta:
+        model=Payment
+        fields=('__all__')
