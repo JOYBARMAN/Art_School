@@ -3,7 +3,7 @@
     <div class="container">
         <h3 class="text-uppercase font-weight-bold text-center text-danger my-5">student payment informations</h3>
         <div class="text-right">
-                            <a class="btn btn-primary text-white m-2" href="{% url 'add-student-payment' %}">Add Student Payment</a>
+                            <a class="btn btn-primary text-white" href="{% url 'add-student-payment' %}">Add Student Payment</a>
             {#                <a class="btn btn-primary text-white m-2">Student Payment</a>#}
             {#                <a class="btn btn-primary text-white m-2">Filter</a>#}
         </div>
@@ -43,7 +43,7 @@
                     <td>{{ payment.october }}</td>
                     <td>{{ payment.november }}</td>
                     <td>{{ payment.december }}</td>
-                    <td class="d-flex"><a class="fas fa-trash text-danger mx-2" href="#"></a><a class="fas fa-pen text-primary mx-2" href="{% url 'edit-student-payment' payment.pk%}"></a></td>
+                    <td class="d-flex"><a class="fas fa-trash text-danger mx-2" href="{% url 'delete-student-payment' payment.pk %}"></a><a class="fas fa-pen text-primary mx-2" href="{% url 'edit-student-payment' payment.pk%}"></a></td>
                 </tr>
             {% endfor %}
             </tbody>
