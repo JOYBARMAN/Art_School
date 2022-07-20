@@ -22,8 +22,17 @@ PAYMENT_STATUS=(
     ("not_updated_yet","not_updated_yet")
 )
 
+CLASSES_AGE=(
+    ("1-5 Years","1-5 Years"),
+    ("1-10 Years","1-10 Years"),
+    ("1-15 Years","1-15 Years"),
+    ("1-20 Years","1-20 Years"),
+    ("All Ages Student","All Ages Student")
+)
+
 class Group(models.Model):
     group=models.CharField(max_length=50)
+    date=models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.group
@@ -97,3 +106,26 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name + " | " + str(self.message[:50])
+
+
+
+class Classes(models.Model):
+    title=models.CharField(max_length=255)
+    thumbnail = models.ImageField(upload_to='images/classes/')
+    age=models.CharField(max_length=255,choices=CLASSES_AGE)
+    description=models.TextField()
+    date=models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title + " | " + str(self.age)
+
+
+class ArtGallery(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    title=models.CharField(max_length=255)
+    art = models.ImageField(upload_to='images/art_gallery/')
+    description=models.TextField()
+    date=models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title + " | " + str(self.description[:50])

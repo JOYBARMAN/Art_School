@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Group , Student ,Payment ,Blog ,Tutorial,Contact
+from .models import Group , Student ,Payment ,Blog ,Tutorial,Contact,Classes,ArtGallery
 
 admin.site.register(Group)
 
@@ -31,7 +31,7 @@ class BlogAdmin(admin.ModelAdmin):
 
 
 @admin.register(Tutorial)
-class BlogAdmin(admin.ModelAdmin):
+class TutorialAdmin(admin.ModelAdmin):
     list_display = ("title","group_name","created_at")
     list_filter = ("created_at",)
     search_fields = ("title__startswith","group__group")
@@ -41,9 +41,21 @@ class BlogAdmin(admin.ModelAdmin):
 
 
 @admin.register(Contact)
-class BlogAdmin(admin.ModelAdmin):
+class ContactAdmin(admin.ModelAdmin):
     list_filter = ("name",)
     search_fields = ("name",)
+
+
+@admin.register(Classes)
+class ClassesAdmin(admin.ModelAdmin):
+    list_display = ("title","age")
+    list_filter = ("date",)
+    search_fields = ("title",)
+
+@admin.register(ArtGallery)
+class ArtGalleryAdmin(admin.ModelAdmin):
+    list_filter = ("date",)
+    search_fields = ("title",)
 
 
 admin.site.site_header = "SEROV ACADEMY OF FINE ARTS"
