@@ -1,5 +1,5 @@
 from django import forms
-from .models import Student,Payment
+from .models import Student,Payment,Feedback
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -22,6 +22,13 @@ class StudentPaymentUpdateForm(forms.ModelForm):
     class Meta:
         model=Payment
         fields=('__all__')
+
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model=Feedback
+        fields=('message',)
+
 
 class NewUserForm(UserCreationForm):
     email = forms.EmailField(required=True)

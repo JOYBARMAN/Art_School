@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Group , Student ,Payment ,Blog ,Tutorial,Contact,Classes,ArtGallery
+from .models import Group , Student ,Payment ,Blog ,Tutorial,Feedback,Classes,ArtGallery
 
 admin.site.register(Group)
 
@@ -40,10 +40,10 @@ class TutorialAdmin(admin.ModelAdmin):
         return obj.group.group
 
 
-@admin.register(Contact)
-class ContactAdmin(admin.ModelAdmin):
-    list_filter = ("name",)
-    search_fields = ("name",)
+@admin.register(Feedback)
+class FeedbackAdmin(admin.ModelAdmin):
+    list_filter = ("date",)
+    search_fields = ("user__username",)
 
 
 @admin.register(Classes)

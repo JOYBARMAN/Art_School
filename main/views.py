@@ -2,11 +2,12 @@ from django.shortcuts import render,redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
-from .models import Student,Payment
+from .models import Student,Payment,Feedback
 from django.urls import reverse_lazy
-from .forms import StudentForm, StudentUpdateForm ,StudentPaymentForm,StudentPaymentUpdateForm ,NewUserForm
+from .forms import StudentForm, StudentUpdateForm ,StudentPaymentForm,StudentPaymentUpdateForm ,NewUserForm,ContactForm
 from django.contrib.auth import login
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 
 
 def home(request):
@@ -102,5 +103,21 @@ def logout_request(request):
 	return redirect("home")
 
 
-def contactUs(request):
-    return render(request, 'contactUs.html')
+# def contactUs(request):
+#     return render(request, 'contactUs.html')
+
+class ContactView(CreateView):
+    model = Feedback
+    form_class = ContactForm
+    template_name = "contactUs.html"
+    # success_url = reverse_lazy("home")
+    def post(self, request, *args, **kwargs):
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        if form.is_valid():
+            user = request.user
+            message = form.cleaned_data['message']
+            Feedback.objects.create(user=user, message=message)
+            return HttpResponseRedirect(reverse_lazy('home'))
+        else:
+            return self.form_invalid(form)

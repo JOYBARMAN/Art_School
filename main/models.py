@@ -99,13 +99,13 @@ class Tutorial(models.Model):
         return self.title +" | "+str(self.group.group)
 
 
-class Contact(models.Model):
-    name=models.CharField(max_length=255)
-    email=models.EmailField(max_length=255)
+class Feedback(models.Model):
+    user =models.ForeignKey(User,on_delete=models.CASCADE)
     message=models.TextField()
+    date =models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.name + " | " + str(self.message[:50])
+        return self.user.username + " | " + str(self.message[:50])
 
 
 
