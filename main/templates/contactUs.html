@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block body %}
 <div>
-    <h2 class="text-center p-4 text-danger font-weight-bold">Contact Page</h2>
+    <h2 class="text-center p-4 text-danger font-weight-bold">Contact Info</h2>
     <div class="row justify-content-center" style="margin: 0px ; padding:0px">
         <div class="col-lg-7">
             <div class="mapouter">
@@ -15,7 +15,7 @@
                             position: relative;
                             text-align: right;
                             height: 333px;
-                            width: 900px;
+                            width: 1000px;
                         }
                     </style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a>
                     <style>
@@ -30,14 +30,36 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-center">
-          <div class="col-lg-7">
-            <h1 class="text-center text-danger mt-4">Send Your Feedback</h1>
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <button type="submit" class="btn btn-success">Send Feedback</button>
-            </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6 col-md-6">
+                <h2 class="text-danger mt-4 font-weight-bold">Address</h2>
+                <div class="my-3">
+                    <h4>Address 1 :</h4>
+                    <p>The Company Name Inc.</p>
+                    <p>8901 Marmora Road, Glasgow, D04 89GR.</p>
+                </div>
+                <div class="my-3">
+                    <h4>Telephones :</h4>
+                    <p>+0938207575809</p>
+                    <p>+9073459857556</p>
+                </div>
+                <div class="my-3">
+                    <h4>Address 1 :</h4>
+                    <p>The Company Name Inc.</p>
+                    <p>8901 Marmora Road, Glasgow, D04 89GR.</p>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 col-md-6">
+                <h2 class="text-danger mt-4 font-weight-bold">Send Your Feedback</h2>
+                {% if user.is_authenticated %}
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn btn-success">Send Feedback</button>
+                </form>
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>
