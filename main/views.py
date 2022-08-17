@@ -121,3 +121,10 @@ class ContactView(CreateView):
             return HttpResponseRedirect(reverse_lazy('home'))
         else:
             return self.form_invalid(form)
+
+
+def aboutUs(request):
+    return render(request, 'aboutUs.html')
+
+def blog(request):
+    return render(request, 'blog.html')
